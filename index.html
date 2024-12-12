@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav role="navigation" aria-label="Main Navigation">
+        <div class="main-nav container flex">
+            <a href="#" onclick="reload()" class="company-logo">
+                <img src="Logo.png" alt="company logo">
+            </a>
+            <div class="nav-links">
+                <ul class="flex">
+                    <li class="hover-link nav-item" id="Sports" onclick="onNavItemClick('Sports')" aria-label="Sports News">Sports</li>
+                    <li class="hover-link nav-item" id="finance" onclick="onNavItemClick('Business')" aria-label="Business News">Business</li>
+                    <li class="hover-link nav-item" id="politics" onclick="onNavItemClick('politics')" aria-label="Politics News">Politics</li>
+                    <li class="hover-link nav-item" id="politics" onclick="onNavItemClick('Entertainment')" aria-label="Entertainment News">Entertainment</li>
+                    <li class="hover-link nav-item" id="politics" onclick="onNavItemClick('lifestyle')" aria-label="lifestyle News">Lifestyle</li>
+                    <li class="hover-link nav-item" id="politics" onclick="onNavItemClick('Weather')" aria-label="Weather News">Weather</li>
+                    <li class="hover-link nav-item" id="politics" onclick="onNavItemClick('Recruiter')" aria-label="Recruitment News">Recruiter</li>
+                    
+            </div>
+            <div class="search-bar flex">
+                <button onclick="toggleDarkMode()" class="dark-mode-toggle">Mode</button>
+                <input id="search-text" type="text" class="news-input" placeholder="e.g. Science" aria-label="Search News">
+                <button id="search-button" class="search-button" aria-label="Search Button">Search</button>
+            </div>
+        </div>
+    </nav>
+    
+    <main>
+        <div class="cards-container container flex" id="cards-container" aria-live="polite">
+            <!-- News cards will be inserted here -->
+        </div>
+    </main>
+    
+    <template id="template-news-card">
+        <div class="card" role="article" aria-label="News Article">
+            <div class="card-header">
+                <img src="https://via.placeholder.com/400x200" alt="news-image" id="news-img">
+            </div>
+            <div class="card-content">
+                <h3 id="news-title">This is the Title</h3>
+                <h6 class="news-source" id="news-source">End Gadget</h6>
+                <p class="news-desc" id="news-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+            </div>
+            <!-- <button onclick="loadBookmarks()" class="view-bookmarks-button">View Bookmarks</button> -->
+        </div>
+    </template>
+
+    <footer class="footer">
+        <div class="footer__bar">
+          Copyright © 2024 Web Addicted . All rights reserved.
+        </div>
+      </footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
