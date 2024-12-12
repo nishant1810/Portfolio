@@ -1,135 +1,96 @@
-const API_KEY = "8151a635e9ac4e13b137872023469356";
-const url = "https://newsapi.org/v2/everything?q=";
+const menuBtn = document.getElementById("menu-btn");
+const navLinks = document.getElementById("nav-links");
+const menuBtnIcon = menuBtn.querySelector("i");
 
-// Remove the window load event and fetch news directly
-fetchNews("India");
+menuBtn.addEventListener("click", (e) => {
+  navLinks.classList.toggle("open");
 
-function reload() {
-    fetchNews("India");
-    window.location.reload();
-}
+  const isOpen = navLinks.classList.contains("open");
+  menuBtnIcon.setAttribute(
+    "class",
+    isOpen ? "ri-close-line" : "ri-menu-3-line"
+  );
+});
 
-async function fetchNews(query) {
-    try {
-        const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
-        if (!res.ok) {
-            throw new Error('Failed to fetch data from the server.');
-        }
-        const data = await res.json();
-        bindData(data.articles);
-    } catch (error) {
-        console.error('Error fetching news:', error);
-    }
-}
+navLinks.addEventListener("click", (e) => {
+  navLinks.classList.remove("open");
+  menuBtnIcon.setAttribute("class", "ri-menu-3-line");
+});
 
-function bindData(articles) {
-    const cardsContainer = document.getElementById("cards-container");
-    const newsCardTemplate = document.getElementById("template-news-card");
+const mixer = mixitup(".project__grid");
 
-    if (!articles || articles.length === 0) {
-        console.error('No articles found.');
-        return;
-    }
+const swiper = new Swiper(".swiper", {
+  loop: true,
+  pagination: {
+    el: ".swiper-pagination",
+  },
+});
 
-    // Sort articles by publication date in descending order
-    articles.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
-
-    cardsContainer.innerHTML = "";
-
-    articles.forEach((article) => {
-        if (!article.urlToImage) return;
-        const cardClone = newsCardTemplate.content.cloneNode(true);
-        fillDataInCard(cardClone, article);
-        cardsContainer.appendChild(cardClone);
-    });
-}
-
-function fillDataInCard(cardClone, article) {
-    const newsImg = cardClone.querySelector("#news-img");
-    const newsTitle = cardClone.querySelector("#news-title");
-    const newsSource = cardClone.querySelector("#news-source");
-    const newsDesc = cardClone.querySelector("#news-desc");
-
-    newsImg.src = article.urlToImage;
-    newsTitle.innerHTML = article.title;
-    newsDesc.innerHTML = article.description;
-
-    const date = new Date(article.publishedAt).toLocaleString("en-us", {
-        timeZone: "Asia/Kolkata",
-    });
-
-    newsSource.innerHTML = `${article.source.name} · ${date}`;
-
-    cardClone.firstElementChild.addEventListener("click", () => {
-        window.open(article.url, "_blank");
-    });
-}
-
-function toggleDarkMode() {
-    document.body.classList.toggle("dark-mode");
-    localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
-}
-
-window.onload = () => {
-    const darkMode = JSON.parse(localStorage.getItem("darkMode"));
-    if (darkMode) {
-        document.body.classList.add("dark-mode");
-    }
+const scrollRevealOption = {
+  distance: "50px",
+  origin: "bottom",
+  duration: 1000,
 };
 
-// function addCategory() {
-//     const categoryName = prompt("Enter new category name:");
-//     if (!categoryName) return;
+// header container
+ScrollReveal().reveal(".header__image img", {
+  ...scrollRevealOption,
+});
 
-//     const categoryList = document.querySelector(".nav-links ul");
-//     const newCategory = document.createElement("li");
-//     newCategory.textContent = categoryName;
-//     newCategory.className = "hover-link nav-item";
-//     newCategory.onclick = () => onNavItemClick(categoryName);
-//     categoryList.appendChild(newCategory);
-// }
+ScrollReveal().reveal(".header__content h4", {
+  ...scrollRevealOption,
+  delay: 500,
+});
 
-// function addToBookmarks(article) {
-//     const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
-//     bookmarks.push(article);
-//     localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-//     alert("Article added to bookmarks!");
-// }
+ScrollReveal().reveal(".header__content h1", {
+  ...scrollRevealOption,
+  delay: 1000,
+});
 
-// function loadBookmarks() {
-//     const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
-//     const container = document.getElementById("cards-container");
-//     container.innerHTML = ""; 
-//     bookmarks.forEach((news) => {
-//         const cardTemplate = document.getElementById("template-news-card").content.cloneNode(true);
-//         cardTemplate.querySelector("#news-title").textContent = news.title;
-//         cardTemplate.querySelector("#news-source").textContent = news.source;
-//         cardTemplate.querySelector("#news-desc").textContent = news.description;
-//         cardTemplate.querySelector("#news-img").src = news.imageUrl || "https://via.placeholder.com/400x200";
-//         container.appendChild(cardTemplate);
-//     });
-// }
+ScrollReveal().reveal(".header__content p", {
+  ...scrollRevealOption,
+  delay: 1500,
+});
 
-let curSelectedNav = null;
-function onNavItemClick(id) {
-    fetchNews(id);
-    const navItem = document.getElementById(id);
-    if (curSelectedNav) {
-        curSelectedNav.classList.remove("active");
-    }
-    curSelectedNav = navItem;
-    curSelectedNav.classList.add("active");
-}
+ScrollReveal().reveal(".header__content .btn", {
+  ...scrollRevealOption,
+  delay: 2000,
+});
 
-const searchButton = document.getElementById("search-button");
-const searchText = document.getElementById("search-text");
+// about container
+ScrollReveal().reveal(".about__image img", {
+  ...scrollRevealOption,
+  origin: "left",
+});
 
-searchButton.addEventListener("click", () => {
-    const query = searchText.value;
-    if (!query) return;
-    fetchNews(query);
-    if (curSelectedNav) {
-        curSelectedNav.classList.remove("active");
-        curSelectedNav = null;
-    }
+ScrollReveal().reveal(".about__content .section__header", {
+  ...scrollRevealOption,
+  delay: 500,
+});
+
+ScrollReveal().reveal(".about__content p", {
+  ...scrollRevealOption,
+  delay: 1000,
+});
+
+ScrollReveal().reveal(".about__content h4", {
+  ...scrollRevealOption,
+  delay: 1500,
+});
+
+ScrollReveal().reveal(".about__btns", {
+  ...scrollRevealOption,
+  delay: 2000,
+});
+
+// service container
+ScrollReveal().reveal(".service__card", {
+  duration: 1000,
+  interval: 500,
+});
+
+// blog container
+ScrollReveal().reveal(".blog__card", {
+  ...scrollRevealOption,
+  interval: 500,
 });
