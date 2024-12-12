@@ -1,64 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News App</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <nav role="navigation" aria-label="Main Navigation">
-        <div class="main-nav container flex">
-            <a href="#" onclick="reload()" class="company-logo">
-                <img src="Logo.png" alt="company logo">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title> Portfolio || Web Addicted </title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__socials">
+        <a href="https://gaur18nishant@gmail.com"><i class="ri-mail-fill"></i></a>
+        <a href="https://github.com/nishant1810"><i class="ri-github-fill"></i></a>
+        <a href="https://www.linkedin.com/in/nishant-gaur-555120268/"><i class="ri-linkedin-fill"></i></a>
+        <a href="https://leetcode.com/u/Nishant1810/"><i class="ri-google-fill"></i></a>
+      </div>
+      <nav>
+        <div class="nav__bar">
+          <div class="nav__profile">
+            <img src="assets/profile.jpg" alt="Profile">
+          </div>
+          <!-- <div class="nav__header">
+            <div class="nav__logo">
+              <a href="#"></a>
+            </div>
+          </div> -->
+
+          <ul class="nav__links" id="nav-links">
+            <li class="link"><a href="#home">Home</a></li>
+            <li class="link"><a href="#about">About</a></li>
+            <li class="link"><a href="#project">Projects</a></li>
+            <li class="link btn"><a href="#contact">Contact</a></li>
+          </ul>
+
+          
+        </div>
+      </nav>
+
+      <div class="section__container header__container" id="home">
+        <div class="header__image">
+          <img src="assets/profile.jpg" alt="header" />
+        </div>
+        <div class="header__content">
+          <h4>Crafting Digital Excellence</h4>
+          <h1>Hi, I Am Nishant</h1>
+          <p>
+            I'm an enthusiastic web developer who is very creative and dedicated to developing lines of code 
+            into online interaction. I ventured into the Digital World long ago, 
+            from where I developed my skills into that of a front-end and a back-end developer." 
+          </p>
+          <button class="btn">Hire Me Now</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="section__container about__container" id="about">
+      <div class="about__image">
+        <img src="assets/about.jpg" alt="about" />
+      </div>
+      <div class="about__content">
+        <h2 class="section__header">Hi There I Web Dev</h2>
+        <p>
+          A passionate web developer with a creative flair and a knack for
+          turning visions into reality. My journey in web development began with
+          a fascination for coding and design, and it has evolved into a career
+          where I blend aesthetics with functionality.
+        </p>
+        <h4>
+          With a focus on user experience and a commitment to staying updated
+          with the latest industry trends, I'm dedicated to creating web
+          solutions that not only meet but exceed expectations.
+        </h4>
+        <div class="about__btns">
+          <a href="assets/Nishant_Gaur_Resume.pdf" download class="download__btn">
+            Download CV
+          </a>
+          <a href="https://gaur18nishant@gmail.com"><i class="ri-mail-fill"></i></a>
+          <a href="https://leetcode.com/u/Nishant1810/"><i class="ri-google-fill"></i></a>
+          <a href="https://github.com/nishant1810"><i class="ri-github-fill"></i></a>
+          <a href="https://www.linkedin.com/in/nishant-gaur-555120268/"><i class="ri-linkedin-fill"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container banner__container">
+      <div class="banner__card">
+        <span><i class="ri-pen-nib-line"></i></span>
+        <div>
+          <h4>Design</h4>
+          <p>
+            Our designers and content creators are committed to delivering
+            engaging digital content.
+          </p>
+        </div>
+      </div>
+      <div class="banner__card">
+        <span><i class="ri-layout-masonry-line"></i></span>
+        <div>
+          <h4>Development</h4>
+          <p>
+            We stay at forefront of technological advancements, ensuring your
+            digital presence performant.
+          </p>
+        </div>
+      </div>
+      <div class="banner__card">
+        <span><i class="ri-checkbox-line"></i></span>
+        <div>
+          <h4>Testing & QA</h4>
+          <p>
+            We understand that your digital presence should not just look good,
+            it should deliver traffic & engagement.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container project__container" id="project">
+      <div class="project__header">
+        <h2 class="section__header">Our Projects</h2>
+        <div class="project__nav">
+          <button
+            class="btn project__btn mixitup-control-active"
+            data-filter="all"
+          >
+            All
+          </button>
+          <button class="btn project__btn" data-filter=".web">Web Apps</button>
+          <button class="btn project__btn" data-filter=".game">Games</button>
+        </div>
+      </div>
+      <div class="project__grid">
+        <div class="project__card mix web">
+          <a href="https://github.com/nishant1810/News-Website" target="_blank">
+          <img src="assets/project-1.jpg" alt="News Website" />
+          </a>
+        </div>
+        <div class="project__card mix game">
+          <a href="https://github.com/shui6540/new-sih" target="_blank">
+            <img src="assets/project-2.jpg" alt="SchemeHub" />
             </a>
-            <div class="nav-links">
-                <ul class="flex">
-                    <li class="hover-link nav-item" id="Sports" onclick="onNavItemClick('Sports')" aria-label="Sports News">Sports</li>
-                    <li class="hover-link nav-item" id="finance" onclick="onNavItemClick('Business')" aria-label="Business News">Business</li>
-                    <li class="hover-link nav-item" id="politics" onclick="onNavItemClick('politics')" aria-label="Politics News">Politics</li>
-                    <li class="hover-link nav-item" id="politics" onclick="onNavItemClick('Entertainment')" aria-label="Entertainment News">Entertainment</li>
-                    <li class="hover-link nav-item" id="politics" onclick="onNavItemClick('lifestyle')" aria-label="lifestyle News">Lifestyle</li>
-                    <li class="hover-link nav-item" id="politics" onclick="onNavItemClick('Weather')" aria-label="Weather News">Weather</li>
-                    <li class="hover-link nav-item" id="politics" onclick="onNavItemClick('Recruiter')" aria-label="Recruitment News">Recruiter</li>
-                    
-            </div>
-            <div class="search-bar flex">
-                <button onclick="toggleDarkMode()" class="dark-mode-toggle">Mode</button>
-                <input id="search-text" type="text" class="news-input" placeholder="e.g. Science" aria-label="Search News">
-                <button id="search-button" class="search-button" aria-label="Search Button">Search</button>
-            </div>
         </div>
-    </nav>
-    
-    <main>
-        <div class="cards-container container flex" id="cards-container" aria-live="polite">
-            <!-- News cards will be inserted here -->
+        <div class="project__card mix design">
+          <a href="https://github.com/nishant1810/Make-a-Balloon-and-Burst-on-Tap" target="_blank">
+          <img src="assets/project-3.jpg" alt="Balloon Burst game" />
+          </a>
         </div>
-    </main>
-    
-    <template id="template-news-card">
-        <div class="card" role="article" aria-label="News Article">
-            <div class="card-header">
-                <img src="https://via.placeholder.com/400x200" alt="news-image" id="news-img">
-            </div>
-            <div class="card-content">
-                <h3 id="news-title">This is the Title</h3>
-                <h6 class="news-source" id="news-source">End Gadget</h6>
-                <p class="news-desc" id="news-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-            </div>
-            <!-- <button onclick="loadBookmarks()" class="view-bookmarks-button">View Bookmarks</button> -->
+        <div class="project__card mix web">
+          <a href="" target="_blank" >
+          <img src="assets/project-4.jpg" alt="project" />
+          </a>
         </div>
-    </template>
+        <div class="project__card mix game">
+          <a href="" target="_blank" >
+            <img src="assets/project-5.jpg" alt="project" />
+            </a>
+        </div>
+        <div class="project__card mix design">
+          <a href="" target="_blank" >
+            <img src="assets/project-6.jpg" alt="project" />
+            </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container blog__container" id="blog">
+      <p class="section__subheader">Blog Posts</p>
+      <h2 class="section__header">I Love To Write Articles</h2>
+      <div class="blog__grid">
+        <div class="blog__card">
+          <img src="assets/blog-1.jpg" alt="blog" />
+          <p>Case Study</p>
+          <h4>Turning Clicks into Conversions with PPC</h4>
+          <a href="#">Read More</a>
+        </div>
+        <div class="blog__card">
+          <img src="assets/blog-2.jpg" alt="blog" />
+          <p>Educational/How-To</p>
+          <h4>The Ultimate Guide to Website Accessibility</h4>
+          <a href="#">Read More</a>
+        </div>
+        <div class="blog__card">
+          <img src="assets/blog-3.jpg" alt="blog" />
+          <p>Trend Analysis</p>
+          <h4>2023 Web Design Trends: What's In and What's Out</h4>
+          <a href="#">Read More</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container contact__container" id="contact">
+      <p class="section__subheader">Contact Us</p>
+      <h2 class="section__header">Get In Touch</h2>
+      <form action="/" class="contact__form">
+        <div class="input__row">
+          <input type="text" placeholder="First Name" />
+          <input type="text" placeholder="Last Name" />
+        </div>
+        <input type="text" placeholder="Email" />
+        <input type="text" placeholder="Description" />
+        <button class="btn">Submit</button>
+      </form>
+    </section>
 
     <footer class="footer">
-        <div class="footer__bar">
-          Copyright © 2024 Web Addicted . All rights reserved.
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <h5><a href="#">Nishant Gaur</a></h5>
+          <p>
+            I'm a dedicated web developer with a creative flair and a penchant
+            for turning lines of code into captivating online experiences.
+          </p>
+          <div class="footer__socials">
+            <a href="https://gaur18nishant@gmail.com"><i class="ri-mail-fill"></i></a>
+            <a href="https://github.com/nishant1810"><i class="ri-github-fill"></i></a>
+            <a href="https://www.linkedin.com/in/nishant-gaur-555120268/"><i class="ri-linkedin-fill"></i></a>
+          </div>
         </div>
-      </footer>
+        
+        <div class="footer__col">
+          <h4>Support</h4>
+          <div class="footer__links">
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bar">
+        Copyright © 2024 Web Addicted . All rights reserved.
+      </div>
+    </footer>
 
-<script src="script.js"></script>
-
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+  </body>
 </html>
